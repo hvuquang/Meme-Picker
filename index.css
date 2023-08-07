@@ -36,6 +36,11 @@ header {
 label {
     font-size: 14px;
     width: 100%;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    cursor: pointer;
 }
 
 /*HEADER*/
@@ -57,7 +62,6 @@ label {
 .controls-container {
     width: 200px;
     margin: 0 auto;
-    text-align: center;
 }
 /*RADIO*/
 .emotion-radios {
@@ -66,6 +70,16 @@ label {
     flex-direction: column;
     border-radius: 5px;
 }
+
+.radio {
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-bottom: 1px solid #bcbcbc;
+}
+
+
+
 /*GIFs*/
 .gifs-check {
     margin: 16px;
