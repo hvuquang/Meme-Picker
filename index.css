@@ -1,0 +1,89 @@
+*, ::after, ::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+}
+
+/*TYPOGRAPHY*/
+
+h1, h2, h3 {
+    text-transform: capitalize;
+    font-weight: 900;
+    text-align: center;
+}
+
+h1,h2 {
+    color: #EED6D3;
+}
+
+h1{
+    font-size: 28px;
+}
+
+h2{
+    font-size: 16px;
+}
+
+h3 {
+    margin: 25px;
+}
+
+header {
+    background-color: #67595E;
+}
+
+label {
+    font-size: 14px;
+    width: 100%;
+}
+
+/*HEADER*/
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: 370px;
+    gap: 15px;
+    padding: 10px 0 0 0;
+}
+
+.pumpkin-img {
+    width: 80px;
+}
+
+/*============== MAIN ==================*/
+.controls-container {
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+}
+/*RADIO*/
+.emotion-radios {
+    border: 1px solid #bcbcbc;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+}
+/*GIFs*/
+.gifs-check {
+    margin: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gifs-check-label {
+    margin-right: 5px;
+}
+
+.get-image-btn {
+    background-color: #67595E;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
