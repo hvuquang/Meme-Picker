@@ -32,3 +32,21 @@ function renderEmotionsRadios(cats) {
 }
 
 renderEmotionsRadios(catsData);
+
+const inputItem = document.getElementById("item-input")
+const addBtn = document.getElementById("add-item-btn")
+const listOfItem = document.getElementById("list")
+
+addBtn.addEventListener("click", function() {
+  let inputValue = inputItem.value
+  renderShoppingItems(inputValue)
+  console.log(inputItem.value)
+})
+
+function renderShoppingItems(inputValue) {
+  let html = ``
+  html += `
+    <li class="shopping-item">${inputValue}</li>
+  `
+  listOfItem.innerHTML += html
+}
