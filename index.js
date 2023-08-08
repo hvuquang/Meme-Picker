@@ -6,7 +6,9 @@ function getEmotionsArray(cats) {
   const emotionArray = [];
   for (let cat of cats) {
     for (let emotion of cat.emotionTags) {
-      emotionArray.push(emotion);
+      if (!emotionArray.includes(emotion)) {
+        emotionArray.push(emotion);
+      }
     }
   }
   return emotionArray;
@@ -33,20 +35,54 @@ function renderEmotionsRadios(cats) {
 
 renderEmotionsRadios(catsData);
 
+emotionRadios.addEventListener("change", function(e) {
+  if(e.target.id === null) return
+  const selectedItem = document.getElementById(e.target.id)
+  console.log(e.target.id)
+  selectedItem.classList.toggle("hightlight")
+})
+
+/*========== Shopping List ==================== */
+
 const inputItem = document.getElementById("item-input")
 const addBtn = document.getElementById("add-item-btn")
 const listOfItem = document.getElementById("list")
 
-addBtn.addEventListener("click", function() {
+const shoppingList = []
+
+inputItem.addEventListener("keypress", function(e) {
   let inputValue = inputItem.value
-  renderShoppingItems(inputValue)
-  console.log(inputItem.value)
+  if (e.key === "Enter") {
+    if (isItemsInList(inputValue) === true) {
+      alert("Item already in list")
+      return;
+    }
+    shoppingList.push(inputValue)
+    renderShoppingItems()
+  }
 })
 
-function renderShoppingItems(inputValue) {
+addBtn.addEventListener("click", function(e) {
+  let inputValue = inputItem.value
+  if (isItemsInList(inputValue) === true) {
+    alert("Item already in list")
+    return;
+  }
+  shoppingList.push(inputValue)
+  renderShoppingItems()
+})
+
+function renderShoppingItems() {
   let html = ``
-  html += `
-    <li class="shopping-item">${inputValue}</li>
+  for ( let item of shoppingList) {
+    html +=  `
+    <li class="shopping-item">${item}</li>
   `
-  listOfItem.innerHTML += html
+  }
+  listOfItem.innerHTML = html
+}
+
+function isItemsInList(item) {
+  if (shoppingList.includes(item) === true) return true
+  return false
 }

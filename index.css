@@ -84,6 +84,12 @@ input[type="radio"] {
     border-bottom: 0px;
 }
 
+.hightlight {
+    color: red;
+    background-color: #fff0ee;
+    font-weight: bold;
+}
+
 /*GIFs*/
 .gifs-check {
     margin: 16px;
