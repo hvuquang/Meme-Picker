@@ -1,6 +1,7 @@
 import { catsData } from "./data.js";
 
-const emotionRadios = document.getElementById("emotion-radios");
+const emotionRadios = document.getElementById("emotion-radios")
+const getImage = document.getElementById("get-image-btn")
 
 function getEmotionsArray(cats) {
   const emotionArray = [];
@@ -50,6 +51,20 @@ function checkOptionHasHightLight() {
 }
 
 emotionRadios.addEventListener("change", hightlightCheckOption)
+
+function getMatchingCatsArray() {
+  const isGif = document.getElementById('gifs-only-option').checked
+  if (document.querySelector(`input[type='radio']:checked`)) {
+    const checkedOption = document.querySelector(`input[type='radio']:checked`).value
+    // console.log(checkedOption.value)
+    const FILTERRED_CAT = catsData.filter(function(cat) {
+      return cat.emotionTags.includes(checkedOption) && cat.isGif == isGif
+    })
+    console.log(FILTERRED_CAT)
+  }
+}
+
+getImage.addEventListener('click', getMatchingCatsArray)
 
 /*========== Shopping List ==================== */
 

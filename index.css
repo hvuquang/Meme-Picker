@@ -106,6 +106,7 @@ input[type="radio"] {
 .get-image-btn {
     background-color: #67595E;
     border: none;
+    color: #eed6d3;
     border-radius: 5px;
     width: 100%;
     padding: 15px 20px;
