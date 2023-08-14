@@ -85,9 +85,10 @@ input[type="radio"] {
 }
 
 .hightlight {
-    color: red;
     background-color: #fff0ee;
+    color: #bd301d;
     font-weight: bold;
+    accent-color: #bd301d;
 }
 
 /*GIFs*/

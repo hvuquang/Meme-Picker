@@ -35,12 +35,21 @@ function renderEmotionsRadios(cats) {
 
 renderEmotionsRadios(catsData);
 
-emotionRadios.addEventListener("change", function(e) {
+function hightlightCheckOption(e) {
+  checkOptionHasHightLight()
   if(e.target.id === null) return
-  const selectedItem = document.getElementById(e.target.id)
-  console.log(e.target.id)
-  selectedItem.classList.toggle("hightlight")
-})
+  const selectedItem = document.getElementById(e.target.id).parentElement
+  selectedItem.classList.add("hightlight")
+}
+
+function checkOptionHasHightLight() {
+  const itemsArray = document.getElementsByClassName('radio')
+  for (let i of itemsArray) {
+    i.classList.remove('hightlight')
+  }
+}
+
+emotionRadios.addEventListener("change", hightlightCheckOption)
 
 /*========== Shopping List ==================== */
 
