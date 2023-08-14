@@ -66,11 +66,19 @@ function getMatchingCatsArray() {
       }
 
     })
-    console.log(FILTERRED_CAT)
+    return FILTERRED_CAT
   }
 }
 
-getImage.addEventListener('click', getMatchingCatsArray)
+function getSingleCatObject() {
+  console.log(getMatchingCatsArray())
+}
+
+function renderCat() {
+  getSingleCatObject()
+}
+
+getImage.addEventListener('click', renderCat)
 
 /*========== Shopping List ==================== */
 
