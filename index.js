@@ -58,7 +58,13 @@ function getMatchingCatsArray() {
     const checkedOption = document.querySelector(`input[type='radio']:checked`).value
     // console.log(checkedOption.value)
     const FILTERRED_CAT = catsData.filter(function(cat) {
-      return cat.emotionTags.includes(checkedOption) && cat.isGif == isGif
+      if (isGif) {
+        return cat.emotionTags.includes(checkedOption) && cat.isGif == isGif
+      }
+      else {
+        return cat.emotionTags.includes(checkedOption)
+      }
+
     })
     console.log(FILTERRED_CAT)
   }
