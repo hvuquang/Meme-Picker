@@ -10,6 +10,7 @@ function getEmotionsArray(cats) {
   const emotionArray = [];
   for (let cat of cats) {
     for (let emotion of cat.emotionTags) {
+      // if the array already have that emotion -> don't push into emotionArray
       if (!emotionArray.includes(emotion)) {
         emotionArray.push(emotion);
       }
@@ -59,6 +60,8 @@ emotionRadios.addEventListener("change", hightlightCheckOption)
 
 function getMatchingCatsArray() {
   const isGif = document.getElementById('gifs-only-option').checked
+  // querySelector is used to select selectors in CSS files
+  // in this case you use it to get the value that was checked by the user
   if (document.querySelector(`input[type='radio']:checked`)) {
     const checkedOption = document.querySelector(`input[type='radio']:checked`).value
     const FILTERRED_CAT = catsData.filter(function(cat) {
