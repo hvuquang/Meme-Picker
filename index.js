@@ -2,6 +2,9 @@ import { catsData } from "./data.js";
 
 const emotionRadios = document.getElementById("emotion-radios")
 const getImage = document.getElementById("get-image-btn")
+const closeModalBtn = document.getElementById("meme-modal-close-btn")
+const modal = document.getElementById("meme-modal")
+const container = document.getElementById("meme-modal-inner")
 
 function getEmotionsArray(cats) {
   const emotionArray = [];
@@ -52,11 +55,12 @@ function checkOptionHasHightLight() {
 
 emotionRadios.addEventListener("change", hightlightCheckOption)
 
+// returns an array of cat objects that matches the user's criteria
+
 function getMatchingCatsArray() {
   const isGif = document.getElementById('gifs-only-option').checked
   if (document.querySelector(`input[type='radio']:checked`)) {
     const checkedOption = document.querySelector(`input[type='radio']:checked`).value
-    // console.log(checkedOption.value)
     const FILTERRED_CAT = catsData.filter(function(cat) {
       if (isGif) {
         return cat.emotionTags.includes(checkedOption) && cat.isGif == isGif
@@ -70,16 +74,47 @@ function getMatchingCatsArray() {
   }
 }
 
+//return a single cat object selected from the array
+//must have an array first 
+
 function getSingleCatObject() {
-  console.log(getMatchingCatsArray())
+  const catsArray = getMatchingCatsArray()
+  //check if there is 1 cat in array, return it
+  if (catsArray.length === 1) {
+    return catsArray[0]
+  }
+  //if more than 1, random
+  else {
+    //floor(): round down
+    //random between 0 - catsArray.length - 1 (random() return 0 - <1)
+    let randomCat = Math.floor(Math.random()*(catsArray.length))
+    return catsArray[randomCat]
+  }
+  return null
 }
+
+//render the HTML string of the cat object provided
+//must have a single cat
 
 function renderCat() {
-  getSingleCatObject()
+  const CAT = getSingleCatObject()
+  if (CAT == null) return
+  let html = ``
+  html = `
+      <img class="cat-img" src=${CAT.image} alt=${CAT.alt}>
+  `
+  //change the display from none -> inline
+  modal.style.display = "flex"
+  container.innerHTML = html
 }
 
-getImage.addEventListener('click', renderCat)
+//what events should listen to ?
+// renderCat -> render String HTML
 
+getImage.addEventListener('click', renderCat)
+closeModalBtn.addEventListener('click', function() {
+  modal.style.display = "none"
+})
 /*========== Shopping List ==================== */
 
 const inputItem = document.getElementById("item-input")

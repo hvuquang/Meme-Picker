@@ -114,7 +114,45 @@ input[type="radio"] {
     margin-bottom: 8px;
 }
 
+/*MEME MODAL*/
+.meme-modal {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    /* positioned relative to the viewport or window -> e will stay fix */
+    /* determined by top, left, right, bottom */
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 80px;
+    z-index: 1000;
+    background-color: #fff0ee;
+    border: 1px solid #67595e;
+    border-radius: 5px;
+    width: 420px;
+    height: 490px;
+}
 
+.meme-modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #555;
+    color: #555;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.cat-img {
+    max-width: 340px;
+    max-height: 340px;
+    border-radius: 5px;
+}
 /*=========My Shopping List==============*/
 
 .container {
