@@ -115,6 +115,12 @@ getImage.addEventListener('click', renderCat)
 closeModalBtn.addEventListener('click', function() {
   modal.style.display = "none"
 })
+
+
+
+
+
+
 /*========== Shopping List ==================== */
 
 const inputItem = document.getElementById("item-input")

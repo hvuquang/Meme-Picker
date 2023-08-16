@@ -136,9 +136,12 @@ input[type="radio"] {
 }
 
 .meme-modal-close-btn {
+    /* 
+        positioned by the relative ancestor that using position
+    */
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 2%;
+    right: 2%;
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -146,6 +149,12 @@ input[type="radio"] {
     color: #555;
     background-color: transparent;
     cursor: pointer;
+}
+
+.meme-modal-close-btn:hover {
+    color: white;
+    background-color: #bd301d;
+    border: 2px solid #bd301d;
 }
 
 .cat-img {
